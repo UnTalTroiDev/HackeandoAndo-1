@@ -153,10 +153,10 @@ export default function Terminal() {
 
   const sceneLabel =
     currentSceneIndex === 0 && commandHistory.length === 0
-      ? `Espacio o → siguiente escena · ${scenes.length} escenas`
+      ? `Espacio o → para avanzar · ${scenes.length} pantallas`
       : currentSceneIndex < scenes.length
-        ? `Escena ${currentSceneIndex + 1} / ${scenes.length}`
-        : 'Fin de las escenas. Escribe comandos manualmente.'
+        ? `${currentSceneIndex + 1} / ${scenes.length}`
+        : 'Listo. Escribe comandos cuando quieras.'
 
   return (
     <div className="terminal">
@@ -207,6 +207,7 @@ export default function Terminal() {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
+            placeholder="Escribe un comando..."
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="off"
@@ -216,10 +217,16 @@ export default function Terminal() {
         </div>
       </div>
       <div className="presentation-controls">
-        <button type="button" className="btn-next" onClick={nextScene}>
-          Siguiente escena
+        <button
+          type="button"
+          className="btn-next"
+          onClick={nextScene}
+          title="Avanzar con Espacio o flecha derecha"
+          aria-label="Siguiente escena (Espacio o flecha derecha)"
+        >
+          Siguiente
         </button>
-        <span className="scene-indicator">{sceneLabel}</span>
+        <span className="scene-indicator" aria-live="polite">{sceneLabel}</span>
       </div>
     </div>
   )

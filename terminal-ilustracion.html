@@ -100,12 +100,16 @@
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      color: #444;
+      color: #555;
       font-size: 14px;
       animation: fade 2s ease-in-out infinite;
       z-index: 10;
     }
     @keyframes fade { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.9; } }
+    @media (prefers-reduced-motion: reduce) {
+      .terminal-body .prompt .cursor { animation: none; opacity: 1; }
+      .scroll-hint { animation: none; opacity: 0.8; }
+    }
   </style>
 </head>
 <body>
@@ -221,7 +225,7 @@
     </div>
   </div>
 
-  <p class="scroll-hint" aria-hidden="true">↓ Scroll para siguiente</p>
+  <p class="scroll-hint" aria-hidden="true">Desliza para ver más</p>
 
 </body>
 </html>

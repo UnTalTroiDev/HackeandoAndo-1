@@ -14,7 +14,7 @@
     .terminal { width: 100%; max-width: 900px; min-height: 70vh; max-height: 90vh; background: #0a0a0a; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); display: flex; flex-direction: column; overflow: hidden; }
     .terminal-header { padding: 8px 14px; background: #1a1a1a; border-bottom: 1px solid #2d2d2d; color: #00ff00; font-size: 0.85rem; }
     .terminal-body { flex: 1; padding: 16px; overflow: hidden; display: flex; flex-direction: column; }
-    .terminal-output { flex: 1; min-height: 200px; overflow-y: auto; color: #00ff00; font-size: clamp(14px, 2.2vh, 18px); line-height: 1.5; white-space: pre-wrap; word-break: break-all; }
+    .terminal-output { flex: 1; min-height: 200px; overflow-y: auto; color: #00ff00; font-size: clamp(14px, 2.2vh, 18px); line-height: 1.5; white-space: pre-wrap; word-break: break-all; scroll-behavior: smooth; }
     .terminal-output .line { margin-bottom: 2px; }
     .terminal-output .line-prompt, .terminal-output .line-banner { color: #00ff00; }
     .terminal-output .line-output { color: #e6e6e6; }
@@ -22,11 +22,13 @@
     .terminal-line { display: flex; align-items: center; margin-top: 8px; flex-shrink: 0; }
     .terminal-line .prompt { color: #00ff00; flex-shrink: 0; margin-right: 4px; }
     .terminal-input { flex: 1; background: transparent; border: none; outline: none; color: #00ff00; font: inherit; font-size: inherit; caret-color: #00ff00; }
+    .terminal-input:focus-visible { outline: 2px solid rgba(0,255,0,0.6); outline-offset: 2px; border-radius: 2px; }
     .terminal-line::after { content: ""; display: inline-block; width: 10px; height: 1.1em; background: #00ff00; animation: bl 1s step-end infinite; margin-left: 2px; vertical-align: text-bottom; }
     @keyframes bl { 50% { opacity: 0; } }
-    .presentation-controls { padding: 10px 14px; background: #1a1a1a; border-top: 1px solid #2d2d2d; display: flex; align-items: center; gap: 12px; }
-    .btn-next { font-family: inherit; font-size: 0.9rem; padding: 6px 14px; background: #00ff00; color: #0a0a0a; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; }
+    .presentation-controls { padding: 12px 16px; background: #1a1a1a; border-top: 1px solid #2d2d2d; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-next { font-family: inherit; font-size: 0.95rem; padding: 10px 20px; min-height: 44px; min-width: 120px; background: #00ff00; color: #0a0a0a; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background 0.15s ease; }
     .btn-next:hover { background: #00cc00; }
+    .btn-next:focus-visible { outline: 2px solid #0a0a0a; outline-offset: 2px; }
     .scene-indicator { color: #888; font-size: 0.85rem; }
   </style>
 </head>
@@ -184,10 +186,10 @@
       useEffect(() => { inputRef.current?.focus(); }, []);
 
       const sceneLabel = sceneIndex === 0 && history.length === 0
-        ? 'Espacio o → siguiente escena · ' + scenes.length + ' escenas'
+        ? 'Espacio o → para avanzar · ' + scenes.length + ' pantallas'
         : sceneIndex < scenes.length
-          ? 'Escena ' + (sceneIndex + 1) + ' / ' + scenes.length
-          : 'Fin de las escenas. Escribe comandos manualmente.';
+          ? (sceneIndex + 1) + ' / ' + scenes.length
+          : 'Listo. Escribe comandos cuando quieras.';
 
       return (
         <div className="terminal">
@@ -223,11 +225,12 @@
                 autoComplete="off"
                 spellCheck={false}
                 aria-label="Comando"
+                placeholder="Escribe un comando..."
               />
             </div>
           </div>
           <div className="presentation-controls">
-            <button type="button" className="btn-next" onClick={nextScene}>Siguiente escena</button>
+            <button type="button" className="btn-next" onClick={nextScene} title="Avanzar con Espacio o flecha derecha" aria-label="Siguiente escena">Siguiente</button>
             <span className="scene-indicator">{sceneLabel}</span>
           </div>
         </div>

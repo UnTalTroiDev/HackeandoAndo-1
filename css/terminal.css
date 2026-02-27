@@ -1,0 +1,176 @@
+/* Terminal Kali Linux — Hackeando Ando #1 */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #0d1117;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Consolas", "Courier New", "Liberation Mono", monospace;
+}
+
+.terminal {
+  width: 100%;
+  max-width: 900px;
+  min-height: 70vh;
+  max-height: 90vh;
+  background: #0a0a0a;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.terminal-header {
+  padding: 8px 14px;
+  background: #1a1a1a;
+  border-bottom: 1px solid #2d2d2d;
+  color: #00ff00;
+  font-size: 0.85rem;
+}
+
+.terminal-title {
+  opacity: 0.9;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-output {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: #00ff00;
+  font-size: clamp(14px, 2.2vh, 18px);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.terminal-output .line {
+  margin-bottom: 2px;
+}
+
+.terminal-output .line.prompt-line {
+  color: #00ff00;
+}
+
+.terminal-output .line.output-line {
+  color: #e6e6e6;
+}
+
+.terminal-output .line.error-line {
+  color: #ff6b6b;
+}
+
+.terminal-line {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.prompt {
+  color: #00ff00;
+  font-size: inherit;
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff00;
+  font: inherit;
+  font-size: inherit;
+  caret-color: #00ff00;
+}
+
+.terminal-input::placeholder {
+  color: rgba(0, 255, 0, 0.4);
+}
+
+/* Cursor parpadeante en la línea activa */
+.terminal-line::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 1.1em;
+  background: #00ff00;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.presentation-controls {
+  padding: 10px 14px;
+  background: #1a1a1a;
+  border-top: 1px solid #2d2d2d;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-next {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  background: #00ff00;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-next:hover {
+  background: #00cc00;
+}
+
+.btn-next:active {
+  transform: scale(0.98);
+}
+
+.scene-indicator {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+/* Responsive para proyector */
+@media (min-width: 1200px) {
+  .terminal {
+    max-width: 1000px;
+  }
+
+  .terminal-output {
+    font-size: 16px;
+  }
+}
+
+@media (max-height: 600px) {
+  .terminal {
+    min-height: 95vh;
+    max-height: 95vh;
+  }
+
+  .terminal-output {
+    font-size: 13px;
+  }
+}

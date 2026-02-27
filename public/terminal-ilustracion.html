@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal — Hackeando Ando #1</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-snap-type: y mandatory; }
+    body {
+      font-family: "Consolas", "Courier New", "Liberation Mono", monospace;
+      background: #050506;
+      color: #e8e8e8;
+    }
+
+    .screen {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      overflow: hidden;
+    }
+
+    .terminal-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      background: #08080a;
+      border-radius: 0;
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: #121214;
+      border-bottom: 2px solid #1e1e22;
+      flex-shrink: 0;
+    }
+    .terminal-dots {
+      display: flex;
+      gap: 10px;
+    }
+    .terminal-dots span {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+    .terminal-dots .red { background: #ff5f56; }
+    .terminal-dots .yellow { background: #ffbd2e; }
+    .terminal-dots .green { background: #27c93f; }
+    .terminal-title {
+      color: #00ff00;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    }
+
+    .terminal-body {
+      flex: 1;
+      padding: clamp(24px, 4vw, 48px) clamp(28px, 5vw, 56px);
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .terminal-body .line {
+      margin-bottom: 0.4em;
+      font-size: clamp(18px, 3.2vw, 28px);
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .terminal-body .line.green { color: #00ff00; text-shadow: 0 0 12px rgba(0, 255, 0, 0.25); }
+    .terminal-body .line.white { color: #f0f0f0; }
+    .terminal-body .line.dim { color: #888; }
+    .terminal-body .prompt {
+      margin-top: 0.6em;
+      color: #00ff00;
+      font-size: clamp(18px, 3.2vw, 28px);
+    }
+    .terminal-body .prompt .cursor {
+      display: inline-block;
+      width: 12px;
+      height: 1.05em;
+      background: #00ff00;
+      animation: blink 1s step-end infinite;
+      vertical-align: text-bottom;
+      margin-left: 4px;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .scroll-hint {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #444;
+      font-size: 14px;
+      animation: fade 2s ease-in-out infinite;
+      z-index: 10;
+    }
+    @keyframes fade { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.9; } }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1 -->
+  <div class="screen" id="s1">
+    <div class="terminal-wrap">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="red"></span><span class="yellow"></span><span class="green"></span>
+        </div>
+        <span class="terminal-title">root@kali — Hackeando Ando #1</span>
+      </div>
+      <div class="terminal-body">
+        <div class="line green">[SYSTEM] Iniciando plataforma Hackeando Ando... (Kali | Ciberseguridad | Comunidad)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="screen" id="s2">
+    <div class="terminal-wrap">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="red"></span><span class="yellow"></span><span class="green"></span>
+        </div>
+        <span class="terminal-title">root@kali — Hackeando Ando #1</span>
+      </div>
+      <div class="terminal-body">
+        <div class="line green">[SYSTEM] Iniciando plataforma Hackeando Ando... (Kali | Ciberseguridad | Comunidad)</div>
+        <div class="line green">[SCAN] Validando temas: Kali Linux, ingeniería social, hacking ético, comunidad Tech...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="screen" id="s3">
+    <div class="terminal-wrap">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="red"></span><span class="yellow"></span><span class="green"></span>
+        </div>
+        <span class="terminal-title">root@kali — Hackeando Ando #1</span>
+      </div>
+      <div class="terminal-body">
+        <div class="line green">[SYSTEM] Iniciando plataforma Hackeando Ando... (Kali | Ciberseguridad | Comunidad)</div>
+        <div class="line green">[SCAN] Validando temas: Kali Linux, ingeniería social, hacking ético, comunidad Tech...</div>
+        <div class="line green">[SUCCESS] BruteKaliSecurity ✓ BeNetwork Coworking ✓ Medellín ✓ Listo para el encuentro</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="screen" id="s4">
+    <div class="terminal-wrap">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="red"></span><span class="yellow"></span><span class="green"></span>
+        </div>
+        <span class="terminal-title">root@kali — Hackeando Ando #1</span>
+      </div>
+      <div class="terminal-body">
+        <div class="line green">[SYSTEM] Iniciando plataforma Hackeando Ando... (Kali | Ciberseguridad | Comunidad)</div>
+        <div class="line green">[SCAN] Validando temas: Kali Linux, ingeniería social, hacking ético, comunidad Tech...</div>
+        <div class="line green">[SUCCESS] BruteKaliSecurity ✓ BeNetwork Coworking ✓ Medellín ✓ Listo para el encuentro</div>
+        <div class="line green">[COMPLIANCE] Encuentro Tech & Ciberseguridad ✓ Intro accesible ✓ Comunidad abierta ✓ Primeros pasos</div>
+        <div class="line green">All systems operational.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 -->
+  <div class="screen" id="s5">
+    <div class="terminal-wrap">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="red"></span><span class="yellow"></span><span class="green"></span>
+        </div>
+        <span class="terminal-title">root@kali — Hackeando Ando #1</span>
+      </div>
+      <div class="terminal-body">
+        <div class="line green">[SYSTEM] Iniciando plataforma Hackeando Ando... (Kali | Ciberseguridad | Comunidad)</div>
+        <div class="line green">[SCAN] Validando temas: Kali Linux, ingeniería social, hacking ético, comunidad Tech...</div>
+        <div class="line green">[SUCCESS] BruteKaliSecurity ✓ BeNetwork Coworking ✓ Medellín ✓ Listo para el encuentro</div>
+        <div class="line green">[COMPLIANCE] Encuentro Tech & Ciberseguridad ✓ Intro accesible ✓ Comunidad abierta ✓ Primeros pasos</div>
+        <div class="line green">All systems operational.</div>
+        <div class="line white" style="margin-top: 0.5em;">Welcome to Hackeando Ando #1 — Primer Encuentro Tech & Ciberseguridad.</div>
+        <div class="line white">Escribe "help" para ver comandos o "about" para saber más del evento.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6 -->
+  <div class="screen" id="s6">
+    <div class="terminal-wrap">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="red"></span><span class="yellow"></span><span class="green"></span>
+        </div>
+        <span class="terminal-title">root@kali — Hackeando Ando #1</span>
+      </div>
+      <div class="terminal-body">
+        <div class="line green">[SYSTEM] Iniciando plataforma Hackeando Ando... (Kali | Ciberseguridad | Comunidad)</div>
+        <div class="line green">[SCAN] Validando temas: Kali Linux, ingeniería social, hacking ético, comunidad Tech...</div>
+        <div class="line green">[SUCCESS] BruteKaliSecurity ✓ BeNetwork Coworking ✓ Medellín ✓ Listo para el encuentro</div>
+        <div class="line green">[COMPLIANCE] Encuentro Tech & Ciberseguridad ✓ Intro accesible ✓ Comunidad abierta ✓ Primeros pasos</div>
+        <div class="line green">All systems operational.</div>
+        <div class="line white" style="margin-top: 0.5em;">Welcome to Hackeando Ando #1 — Primer Encuentro Tech & Ciberseguridad.</div>
+        <div class="line white">Escribe "help" para ver comandos o "about" para saber más del evento.</div>
+        <div class="line white" style="margin-top: 0.4em;">Available commands: whoami, uname, nmap, help, about, kali, social-engineer, comunidad, benetwork</div>
+        <div class="prompt">root@kali:~# <span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="scroll-hint" aria-hidden="true">↓ Scroll para siguiente</p>
+
+</body>
+</html>

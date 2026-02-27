@@ -2,10 +2,10 @@ export const PROMPT = 'root@kali:~# '
 
 const CYBER_TEXT = `La importancia de la Ciberseguridad
 
-La escasez de habilidades en ciberseguridad es un tema global, pero algunas regiones enfrentan mayores desafùos que otras. Aquù estù un desglose de las inequidades en la disponibilidad de habilidades:
+La escasez de habilidades en ciberseguridad es un tema global, pero algunas regiones enfrentan mayores desafÌos que otras. AquÌ est· un desglose de las inequidades en la disponibilidad de habilidades:
 
-- Latinoamùrica y el Caribe tienen la mayor escasez de profesionales de ciberseguridad per cùpita.
-- Europa y Norteamùrica tienen mejor acceso a profesionales capacitados, pero la demanda sigue superando la oferta.
+- LatinoamÈrica y el Caribe tienen la mayor escasez de profesionales de ciberseguridad per c·pita.
+- Europa y NorteamÈrica tienen mejor acceso a profesionales capacitados, pero la demanda sigue superando la oferta.
 
 Source: Global Cybersecurity Outlook 2026 - WEF`
 
@@ -29,47 +29,47 @@ export const commands = {
       '  -sT    TCP connect() scan\n' +
       '  -sU    UDP scan\n' +
       '  -sA    TCP ACK scan\n\n' +
-      'Hackeando Ando #1 ù Herramientas como nmap son parte del kit de Kali para escaneo de red (siempre con autorizaciùn).',
+      'Hackeando Ando #1 ó Herramientas como nmap son parte del kit de Kali para escaneo de red (siempre con autorizaciÛn).',
   },
   'nmap --help': {
     output:
       'Nmap 7.94 ( https://nmap.org )\n' +
       'Usage: nmap [Scan Type(s)] [Options] {target specification}\n\n' +
-      'Hackeando Ando #1 ù Primeros pasos en hacking ùtico.',
+      'Hackeando Ando #1 ó Primeros pasos en hacking Ètico.',
   },
   'echo "Hackeando Ando #1"': { output: 'Hackeando Ando #1' },
   'echo hackeando ando': { output: 'hackeando ando' },
   help: {
     output:
       'Comandos disponibles en esta demo:\n' +
-      '  whoami              ù Identidad en ciberseguridad\n' +
-      '  uname -a            ù Importancia de la ciberseguridad\n' +
-      '  vulnerabilidades / 1 ù Empresas vulnerables, pentest\n' +
-      '  mercado / devsecops / 2 ù Evoluciùn seguridad continua\n' +
-      '  secure              ù Si todo serù software, todo debe ser seguro\n' +
-      '  nmap / nmap --help  ù Herramientas de escaneo\n' +
-      '  echo "..."           ù Mensaje del evento\n' +
-      '  social-engineer     ù Ingenierùa social\n' +
-      '  help / ?            ù Esta ayuda',
+      '  whoami              ó Identidad en ciberseguridad\n' +
+      '  uname -a            ó Importancia de la ciberseguridad\n' +
+      '  vulnerabilidades / 1 ó Empresas vulnerables, pentest\n' +
+      '  mercado / devsecops / 2 ó EvoluciÛn seguridad continua\n' +
+      '  secure              ó Si todo ser· software, todo debe ser seguro\n' +
+      '  nmap / nmap --help  ó Herramientas de escaneo\n' +
+      '  echo "..."           ó Mensaje del evento\n' +
+      '  social-engineer     ó IngenierÌa social\n' +
+      '  help / ?            ó Esta ayuda',
   },
   '?': {
     output:
       'Comandos disponibles en esta demo:\n' +
-      '  whoami              ù Identidad en ciberseguridad\n' +
-      '  uname -a            ù Importancia de la ciberseguridad\n' +
-      '  vulnerabilidades / 1 ù Empresas vulnerables, pentest\n' +
-      '  mercado / devsecops / 2 ù Evoluciùn seguridad continua\n' +
-      '  secure              ù Si todo serù software, todo debe ser seguro\n' +
-      '  nmap / nmap --help  ù Herramientas de escaneo\n' +
-      '  echo "..."           ù Mensaje del evento\n' +
-      '  social-engineer     ù Ingenierùa social\n' +
-      '  help / ?            ù Esta ayuda',
+      '  whoami              ó Identidad en ciberseguridad\n' +
+      '  uname -a            ó Importancia de la ciberseguridad\n' +
+      '  vulnerabilidades / 1 ó Empresas vulnerables, pentest\n' +
+      '  mercado / devsecops / 2 ó EvoluciÛn seguridad continua\n' +
+      '  secure              ó Si todo ser· software, todo debe ser seguro\n' +
+      '  nmap / nmap --help  ó Herramientas de escaneo\n' +
+      '  echo "..."           ó Mensaje del evento\n' +
+      '  social-engineer     ó IngenierÌa social\n' +
+      '  help / ?            ó Esta ayuda',
   },
   'social-engineer': {
     output:
-      '[!] Ingenierùa social: uso de la manipulaciùn humana para obtener informaciùn o acceso.\n\n' +
-      'Afecta a empresas y personas. En Hackeando Ando #1 hablaremos de cùmo reconocerla y mitigarla.\n\n' +
-      'Comando ficticio para la presentaciùn.',
+      '[!] IngenierÌa social: uso de la manipulaciÛn humana para obtener informaciÛn o acceso.\n\n' +
+      'Afecta a empresas y personas. En Hackeando Ando #1 hablaremos de cÛmo reconocerla y mitigarla.\n\n' +
+      'Comando ficticio para la presentaciÛn.',
   },
   cibersecurity: {
     output: CYBER_TEXT,
@@ -79,37 +79,37 @@ export const commands = {
   },
   vulnerabilidades: {
     output:
-      '1. Las empresas no saben quù tan vulnerables son\n\n' +
+      '1. Las empresas no saben quÈ tan vulnerables son\n\n' +
       '- El 70-80% de empresas nunca han hecho un pentest real\n' +
-      '- Las auditorùas tradicionales son costosas y lentas\n' +
+      '- Las auditorÌas tradicionales son costosas y lentas\n' +
       '- La seguridad se implementa tarde, cuando ya hubo un incidente.\n\n' +
-      'El mercado estù desprotegido, no solo desabastecido.',
+      'El mercado est· desprotegido, no solo desabastecido.',
   },
   '1': {
     output:
-      '1. Las empresas no saben quù tan vulnerables son\n\n' +
+      '1. Las empresas no saben quÈ tan vulnerables son\n\n' +
       '- El 70-80% de empresas nunca han hecho un pentest real\n' +
-      '- Las auditorùas tradicionales son costosas y lentas\n' +
+      '- Las auditorÌas tradicionales son costosas y lentas\n' +
       '- La seguridad se implementa tarde, cuando ya hubo un incidente.\n\n' +
-      'El mercado estù desprotegido, no solo desabastecido.',
+      'El mercado est· desprotegido, no solo desabastecido.',
   },
   mercado: {
     output:
-      '2. El mercado estù evolucionando hacia un enfoque de seguridad continua, donde las prùcticas de DevSecOps estùn reemplazando las auditorùas puntuales, la automatizaciùn se estù convirtiendo en el estùndar para proteger aplicaciones y procesos, y las startups de ciberseguridad basadas en modelos SaaS estùn creciendo rùpidamente para responder a esta nueva demanda empresarial.',
+      '2. El mercado est· evolucionando hacia un enfoque de seguridad continua, donde las pr·cticas de DevSecOps est·n reemplazando las auditorÌas puntuales, la automatizaciÛn se est· convirtiendo en el est·ndar para proteger aplicaciones y procesos, y las startups de ciberseguridad basadas en modelos SaaS est·n creciendo r·pidamente para responder a esta nueva demanda empresarial.',
   },
   devsecops: {
     output:
-      '2. El mercado estù evolucionando hacia un enfoque de seguridad continua, donde las prùcticas de DevSecOps estùn reemplazando las auditorùas puntuales, la automatizaciùn se estù convirtiendo en el estùndar para proteger aplicaciones y procesos, y las startups de ciberseguridad basadas en modelos SaaS estùn creciendo rùpidamente para responder a esta nueva demanda empresarial.',
+      '2. El mercado est· evolucionando hacia un enfoque de seguridad continua, donde las pr·cticas de DevSecOps est·n reemplazando las auditorÌas puntuales, la automatizaciÛn se est· convirtiendo en el est·ndar para proteger aplicaciones y procesos, y las startups de ciberseguridad basadas en modelos SaaS est·n creciendo r·pidamente para responder a esta nueva demanda empresarial.',
   },
   '2': {
     output:
-      '2. El mercado estù evolucionando hacia un enfoque de seguridad continua, donde las prùcticas de DevSecOps estùn reemplazando las auditorùas puntuales, la automatizaciùn se estù convirtiendo en el estùndar para proteger aplicaciones y procesos, y las startups de ciberseguridad basadas en modelos SaaS estùn creciendo rùpidamente para responder a esta nueva demanda empresarial.',
+      '2. El mercado est· evolucionando hacia un enfoque de seguridad continua, donde las pr·cticas de DevSecOps est·n reemplazando las auditorÌas puntuales, la automatizaciÛn se est· convirtiendo en el est·ndar para proteger aplicaciones y procesos, y las startups de ciberseguridad basadas en modelos SaaS est·n creciendo r·pidamente para responder a esta nueva demanda empresarial.',
   },
   secure: {
-    output: 'Si todo serù software, todo debe ser seguro.',
+    output: 'Si todo ser· software, todo debe ser seguro.',
   },
   'software-seguro': {
-    output: 'Si todo serù software, todo debe ser seguro.',
+    output: 'Si todo ser· software, todo debe ser seguro.',
   },
   clear: { output: null },
 }
@@ -122,8 +122,8 @@ export const banner = [
   ' | |_) |  __/|  _ < | | | |___  | |   |  _  |/ ___ \\ | | |',
   ' |____/|_|   |_| \\_\\|_| |_____| |_|   |_| |_/_/   \\_\\|_|_|   BRUTE KALI',
   '',
-  '  Hackeando Ando #1 ù Primer Encuentro Tech & Ciberseguridad',
-  '  BruteKaliSecurity ù BeNetwork Coworking ù Medellùn',
+  '  Hackeando Ando #1 ó Primer Encuentro Tech & Ciberseguridad',
+  '  BruteKaliSecurity ∑ BeNetwork Coworking ∑ MedellÌn',
   '',
   "  Escribe 'help' o '?' para ver comandos de la demo.",
   '',
